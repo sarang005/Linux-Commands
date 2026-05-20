@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linux Commands Handbook</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Linux Commands Handbook</h1>
+      <p>
+        Complete Linux command reference with syntax, options, examples,
+        explanations, and practical usage.
+      </p>
+
+      <nav>
+        <a href="#communication">Communication</a>
+        <a href="#comparison">File Comparison</a>
+        <a href="#management">File Management</a>
+        <a href="#media">Media</a>
+      </nav>
+
+      <div class="search-box">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search Linux commands..."
+        />
+      </div>
+    </header>
+
+    <main>
+      <section id="communication">
+        <h2>Communication Commands</h2>
+
+        <div class="cards">
+          <div class="card command-card">
+            <div class="card-header">
+              <h3>dig</h3>
+              <p>Query DNS server</p>
+            </div>
+
+            <div class="card-content">
+              <div class="block">
+                <h4>Syntax</h4>
+                <pre>dig [options] domain [query-type]</pre>
+              </div>
+
+              <div class="block">
+                <h4>Options</h4>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Option</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td class="option">@server</td>
+                      <td>Use specific DNS server</td>
+                      <td><code>dig @8.8.8.8 google.com</code></td>
+                    </tr>
+
+                    <tr>
+                      <td class="option">MX</td>
+                      <td>Mail server records</td>
+                      <td><code>dig gmail.com MX</code></td>
+                    </tr>
+
+                    <tr>
+                      <td class="option">+short</td>
+                      <td>Short output</td>
+                      <td><code>dig google.com +short</code></td>
+                    </tr>
+
+                    <tr>
+                      <td class="option">-x</td>
+                      <td>Reverse lookup</td>
+                      <td><code>dig -x 8.8.8.8</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="block">
+                <h4>Examples</h4>
+
+                <div class="example">
+                  <div class="example-title">Basic DNS Lookup</div>
+                  <pre>dig google.com</pre>
+                </div>
+
+                <div class="example">
+                  <div class="example-title">Find Mail Servers</div>
+                  <pre>dig gmail.com MX</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card command-card">
+            <div class="card-header">
+              <h3>ssh</h3>
+              <p>Securely connect to remote systems</p>
+            </div>
+
+            <div class="card-content">
+              <div class="block">
+                <h4>Syntax</h4>
+                <pre>ssh [options] user@host</pre>
+              </div>
+
+              <div class="block">
+                <h4>Options</h4>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Option</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td class="option">-p</td>
+                      <td>Specify port</td>
+                      <td><code>ssh -p 2222 user@server</code></td>
+                    </tr>
+
+                    <tr>
+                      <td class="option">-i</td>
+                      <td>Identity file</td>
+                      <td><code>ssh -i key.pem user@server</code></td>
+                    </tr>
+
+                    <tr>
+                      <td class="option">-X</td>
+                      <td>Enable X11 forwarding</td>
+                      <td><code>ssh -X user@server</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="block">
+                <h4>Examples</h4>
+
+                <div class="example">
+                  <div class="example-title">Connect to Remote Server</div>
+                  <pre>ssh user@192.168.1.10</pre>
+                </div>
+
+                <div class="example">
+                  <div class="example-title">Run Command Remotely</div>
+                  <pre>ssh user@server "df -h"</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="comparison">
+        <h2>File Comparison Commands</h2>
+
+        <div class="cards">
+          <div class="card command-card">
+            <div class="card-header">
+              <h3>diff</h3>
+              <p>Compare files line by line</p>
+            </div>
+
+            <div class="card-content">
+              <div class="block">
+                <h4>Syntax</h4>
+                <pre>diff [options] file1 file2</pre>
+              </div>
+
+              <div class="block">
+                <h4>Options</h4>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Option</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td class="option">-u</td>
+                      <td>Unified format</td>
+                      <td><code>diff -u old.c new.c</code></td>
+                    </tr>
+
+                    <tr>
+                      <td class="option">-w</td>
+                      <td>Ignore whitespace</td>
+                      <td><code>diff -w file1 file2</code></td>
+                    </tr>
+
+                    <tr>
+                      <td class="option">-r</td>
+                      <td>Recursive compare</td>
+                      <td><code>diff -r dir1 dir2</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="management">
+        <h2>File Management Commands</h2>
+
+        <div class="cards">
+          <div class="card command-card">
+            <div class="card-header">
+              <h3>ls</h3>
+              <p>List files and directories</p>
+            </div>
+
+            <div class="card-content">
+              <div class="block">
+                <h4>Syntax</h4>
+                <pre>ls [options] [directory]</pre>
+              </div>
+
+              <div class="block">
+                <h4>Options</h4>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Option</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td class="option">-l</td>
+                      <td>Long listing</td>
+                      <td><code>ls -l</code></td>
+                    </tr>
+
+                    <tr>
+                      <td class="option">-a</td>
+                      <td>Show hidden files</td>
+                      <td><code>ls -a</code></td>
+                    </tr>
+
+                    <tr>
+                      <td class="option">-h</td>
+                      <td>Human readable sizes</td>
+                      <td><code>ls -lh</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="block">
+                <h4>Examples</h4>
+
+                <div class="example">
+                  <div class="example-title">Basic Listing</div>
+                  <pre>ls</pre>
+                </div>
+
+                <div class="example">
+                  <div class="example-title">Detailed Listing</div>
+                  <pre>ls -lah</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card command-card">
+            <div class="card-header">
+              <h3>chmod</h3>
+              <p>Change file permissions</p>
+            </div>
+
+            <div class="card-content">
+              <div class="block">
+                <h4>Syntax</h4>
+                <pre>chmod [options] mode file</pre>
+              </div>
+
+              <div class="block">
+                <h4>Permission Values</h4>
+
+                <div class="note">4 = Read</div>
+                <div class="note">2 = Write</div>
+                <div class="note">1 = Execute</div>
+              </div>
+
+              <div class="block">
+                <h4>Examples</h4>
+
+                <div class="example">
+                  <div class="example-title">Full Permission</div>
+                  <pre>chmod 777 script.sh</pre>
+                </div>
+
+                <div class="example">
+                  <div class="example-title">Recursive Permission</div>
+                  <pre>chmod -R 755 project/</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card command-card">
+            <div class="card-header">
+              <h3>rm</h3>
+              <p>Remove files and directories</p>
+            </div>
+
+            <div class="card-content">
+              <div class="block">
+                <h4>Examples</h4>
+
+                <div class="example">
+                  <div class="example-title">Delete File</div>
+                  <pre>rm file.txt</pre>
+                </div>
+
+                <div class="example">
+                  <div class="example-title">Delete Directory</div>
+                  <pre>rm -rf project/</pre>
+                </div>
+              </div>
+
+              <div class="warning">
+                <h4>Warning</h4>
+                <p>
+                  Be careful with rm -rf. It permanently deletes files and
+                  directories.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="media">
+        <h2>Media Commands</h2>
+
+        <div class="cards">
+          <div class="card command-card">
+            <div class="card-header">
+              <h3>genisoimage</h3>
+              <p>Generate ISO image from a directory</p>
+            </div>
+
+            <div class="card-content">
+              <div class="block">
+                <h4>Syntax</h4>
+                <pre>genisoimage [options] source_directory</pre>
+              </div>
+
+              <div class="block">
+                <h4>Examples</h4>
+
+                <div class="example">
+                  <div class="example-title">Create ISO</div>
+                  <pre>genisoimage -o backup.iso /data</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h3>Linux Commands Handbook</h3>
+      <p>
+        Learn Linux commands faster with practical examples and detailed
+        explanations.
+      </p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
